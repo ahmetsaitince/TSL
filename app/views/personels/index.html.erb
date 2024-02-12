@@ -1,0 +1,14 @@
+<body style="background-color: #000;">
+    <h1 style="color: #fff; text-align: center;">Merhaba, Fenerbahçe!</h1>
+
+    <ul>
+        <% @personels.each do |personel| %>
+            <li style="color: #fff; ">
+                <%= link_to personel.name, "/personels/#{personel.id}"  %>
+                <%= personel.surname%>
+            </li>
+        <% end %>
+    </ul>
+    <%= link_to "New Personel", new_personel_path %>
+
+</body>

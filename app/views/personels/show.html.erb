@@ -1,0 +1,23 @@
+<body style="background-color: #002749; color: #ffef09;">
+    <h1><%= @personel.name %> <%= @personel.surname %></h1>
+
+    <p><span>Entry Date: </span><%=  @personel.entry %></p>
+    <p><span>Department: </span><%=  @personel.department %></p>
+    <p><span>Status: </span><%=  @personel.status ? 'on duty' : 'enemy' %></p>
+    <p><span>Contract ends: </span><%=  @personel.due %></p>
+    <p><span>Birth date: </span><%=  @personel.birth %></p>
+    <p><span>Nationality: </span><%=  @personel.nation %></p>
+
+    <a style="color: #fff; text-decoration: none;" href="/"><%='Home'%></a> <br>
+
+    <ul>
+        <li style="color: #fff">
+        <%= link_to "Edit", edit_personel_path(@personel) %>
+        </li>
+        <li style="color: #fff">
+        <%= link_to "Destroy", personel_path(@personel), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        } %></li>
+    </ul>
+</body>

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  surname: MyString
+  department: MyString
+  status: Boolean
+  entry: 2024-02-07
+  due: 2024-02-07
+  birth: 2024-02-07
+  nation: MyString
+
+two:
+  name: MyString
+  surname: MyString
+  department: MyString
+  status: Boolean
+  entry: 2024-02-07
+  due: 2024-02-07
+  birth: 2024-02-07
+  nation: MyString

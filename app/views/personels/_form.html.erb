@@ -1,0 +1,62 @@
+<%= form_with model: personel do |form| %>
+    
+    <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% personel.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    
+    <div>
+        <%= form.label :surname %><br>
+        <%= form.text_field :surname %><br>
+        <% personel.errors.full_messages_for(:surname).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :department %><br>
+        <%= form.text_field :department %><br>
+        <% personel.errors.full_messages_for(:department).each do |message| %>
+            <div><%= message %></div> 
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.check_box :status %>
+        <%= form.label 'in club?'%>
+        <% personel.errors.full_messages_for(:status).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :entry %>
+        <%= form.date_field :entry %>
+    </div>
+
+    <div>
+        <%= form.label :birth %>
+        <%= form.date_field :birth %>
+    </div>
+
+    <div>
+        <%= form.label :due%>
+        <%= form.date_field :due %>
+    </div>
+
+    <div>
+        <%= form.label :nation %>
+        <%= form.select :nation, ["Türkiye", "Croatia", "Brazil", "France", "Ghana", "Italy", "Netherlands", "Brazil", "Nigeria", "England", "Suriname", "Bosnia-Herzegovina",  "Slovenia", "Poland", "Serbia", "Norway", "Belgium", "DR Congo"] %>
+        <% personel.errors.full_messages_for(:nation).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+    
+<% end %>
