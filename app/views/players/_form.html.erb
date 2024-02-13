@@ -1,0 +1,36 @@
+<%= form_with model: [ @personel, @personel.players.build ] do |form| %>
+    
+    <p>
+        <%= form.label :position %><br>
+        <%= form.select :position, ['GK', 'LB', 'CB', 'RB', 'DM', 'CM', 'OM', 'RM', 'LM', 'LW', 'RW', 'CF', 'ST'] %>
+    </p>
+
+    <p>
+        <%= form.label :height %><br>
+        <%= form.number_field :height, in: 140.0..240.0, step: 0.5 %>
+    </p>
+
+    <p>   
+        <%= form.label :foot %><br>
+        <%= form.select :foot, ['Right', 'Left', 'Both'] %>
+    </p>
+
+    <p>
+        <%= form.label :market_value %><br>
+        <%= form.number_field :market_value, in: 1000000..1000000000, step: 1 %>
+    </p>
+
+    <p>
+        <%= form.label :transfer_type %><br>
+        <%= form.select :transfer_type, ['Free', 'Rental', 'Loan'] %>
+    </p>
+
+    <p>   
+        <%= form.label :previous_club %><br>
+        <%= form.select :previous_club, ['Manchester United', 'Dinamo Zagreb', 'Göztepe FK', 'Fenerbahçe U19', 'Atletico Madrid', 'Udinese', 'Strasbourg', 'Union Berlin', 'Sassuolo', 'AC Milan', 'Dinamo Moscow', 'Rangers', 'Olympique Marseille', 'Ajax', 'Inter', 'Karagümrük FK'] %>
+    </p>
+
+    <p>
+        <%= form.submit %>
+    </p>
+<% end %>

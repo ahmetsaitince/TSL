@@ -1,0 +1,37 @@
+<p>
+<strong>Position:</strong>
+<%= player.position %>
+</p>
+
+<p>
+<strong>height:</strong>
+<%= player.height %> cm
+</p>
+
+<p>
+<strong>foot:</strong>
+<%= player.foot %>Foot
+</p>
+
+<p>
+<strong>Market Value:</strong>
+€<%= player.market_value %>
+</p>
+    
+<p>
+<strong>transfer_type:</strong>
+<%= player.transfer_type %>
+</p>
+
+<p>
+<strong>previous_club:</strong>
+<%= player.previous_club %>
+</p>
+
+<p>
+    <%= link_to "Destroy Player", [player.personel, player], 
+    data: {            
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %>
+</p>

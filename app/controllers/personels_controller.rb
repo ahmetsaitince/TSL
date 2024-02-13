@@ -46,6 +46,6 @@ class PersonelsController < ApplicationController
 
   def personel_params
     # permit! allows all
-    params.require(:personel).permit(:name, :surname, :department, :nation, :status, :entry, :due, :birth)
+    params.require(:personel).permit(:name, :surname, :department, :nation, :status, :entry, :due, :birth, :img)
   end
 end

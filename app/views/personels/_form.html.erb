@@ -16,9 +16,17 @@
         <% end %>
     </div>
 
+        <div>
+        <%= form.label :img %><br>
+        <%= form.text_field :img %><br>
+        <% personel.errors.full_messages_for(:img).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
     <div>
         <%= form.label :department %><br>
-        <%= form.text_field :department %><br>
+        <%= form.select :department, ['Player', 'Staff', 'Management'] %><br>
         <% personel.errors.full_messages_for(:department).each do |message| %>
             <div><%= message %></div> 
         <% end %>
@@ -27,9 +35,6 @@
     <div>
         <%= form.check_box :status %>
         <%= form.label 'in club?'%>
-        <% personel.errors.full_messages_for(:status).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
     </div>
 
     <div>
