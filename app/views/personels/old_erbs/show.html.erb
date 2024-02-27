@@ -1,0 +1,34 @@
+<body style='background-color: #002749; color: #ffef09;'>
+<img style="max-width:150px; text-align: center;" src="<%= @personel.img %>">
+<h1><%= @personel.name %> <%= @personel.surname %></h1>
+<p><span>Entry Date: </span><%=  @personel.entry %></p>
+<p><span>Department: </span><%=  @personel.department %></p>
+<p><span>Status: </span><%=  @personel.status == '1' ? 'On Duty' : 'Enemy' %></p>
+<p><span>Contract ends: </span><%=  @personel.due %></p>
+<p><span>Birth date: </span><%=  @personel.birth %></p>
+<p><span>Nationality: </span><%=  @personel.nation %></p>
+
+<a style='color: #fff; text-decoration: none;' href='/'><%='Home'%></a> <br>
+
+<ul>
+  <li style='color: #fff'>
+    <%= link_to 'Edit', edit_personel_path(@personel) %>
+  </li>
+  <li style='color: #fff'>
+    <%= link_to 'Destroy', personel_path(@personel), data: {
+      turbo_method: :delete,
+      turbo_confirm: 'Are you sure?'
+    } %></li>
+</ul>
+
+<% if @personel.department == 'Player' %>
+  <h2> Player Details </h2>
+  <%= render @personel.players %>
+
+  <hr>
+  <% unless @personel.players.length > 0 %>
+    <h2>Add Player Details</h2>
+    <%= render 'players/form' %>
+  <% end %>
+<% end %>
+</body>

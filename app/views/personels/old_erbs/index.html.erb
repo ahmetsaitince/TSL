@@ -1,0 +1,52 @@
+<div class="container">
+    <%= render TeamInfoComponent.new do%>
+    <% end %>
+    <div class="my-5"></div> <%# temporal %>
+    <%= render PlayerViewComponent.new do %>
+    <% end %>
+</div>
+
+
+<h1 style="color: #fff; text-align: center;">Merhaba, Fenerbahçe!</h1>
+
+<h2 style='color: yellow;'>Squad</h2>
+<p style='color: #fff;'>Squad size: <%= Personel.squad_size %></p>
+<p style='color: #fff;'>Foreigners: <%= Personel.foreigner_count %></p><br>
+
+<% @personels.each do |personel| %>
+    <% if personel.department == 'Player' %>
+        <li style='color: #fff; '>
+            <%= link_to personel.name, "/personels/#{personel.id}"  %>
+            <%= personel.surname %>
+        </li>
+    <% end %>
+<% end %>
+
+
+<h2 style='color: #fff;'>Active Personel</h2>
+<ul>
+    <% @personels.each do |personel| %>
+        <% unless personel.enemy? || personel.department == 'Player' %>
+        <li style='color: #fff; '>
+            <%= link_to personel.name, "/personels/#{personel.id}"  %>
+            <%= personel.surname %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
+
+<h2 style='color: red;'>Enemies</h2>
+<ul>
+    <% @personels.each do |personel| %>
+        <% if personel.enemy? %>
+        <li style='color: #fff; '>
+            <%= link_to personel.name, "/personels/#{personel.id}"  %>
+            <%= personel.surname %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
+
+
+<%= link_to "New Personel", new_personel_path %>
+

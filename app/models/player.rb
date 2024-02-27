@@ -1,5 +1,7 @@
 class Player < ApplicationRecord
   include Working
 
-  belongs_to :personel
+  validates :position, presence: true
+  validates :market_value, presence: true
+  validates :kit_number, presence: true
 end

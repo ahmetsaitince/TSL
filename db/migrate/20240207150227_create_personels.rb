@@ -11,6 +11,8 @@ class CreatePersonels < ActiveRecord::Migration[7.1]
       t.string :nation
 
       t.timestamps # created_at, updated_at
+    ends
+
     end
   end
 end

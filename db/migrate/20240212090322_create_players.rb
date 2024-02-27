@@ -1,6 +1,7 @@
 class CreatePlayers < ActiveRecord::Migration[7.1]
   def change
     create_table :players do |t|
+      t.belongs_to :personel, foreign_key: true
       t.string :position
       t.integer :height
       t.string :foot

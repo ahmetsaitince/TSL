@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  squad_size: 1
+  average_age: 1.5
+  foreigners: 1
+  national_players: 1
+  stadium: MyString
+  value: 1
+  personel: one
+
+two:
+  squad_size: 1
+  average_age: 1.5
+  foreigners: 1
+  national_players: 1
+  stadium: MyString
+  value: 1
+  personel: two

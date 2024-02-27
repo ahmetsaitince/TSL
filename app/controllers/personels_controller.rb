@@ -1,31 +1,45 @@
 class PersonelsController < ApplicationController
+  layout -> { ApplicationLayout }
+
   def index
-    @personels = Personel.all
+    # @personels = Personel.all
+
+    @q = Personel.ransack(params[:q])
+    @personels = @q.result(distinct: true)
+
+    render Personels::IndexView.new(
+      q: @q, personels: @personels)
   end
 
   def show
     @personel = Personel.find(params[:id])
+
+    render Personels::ShowView.new(
+      personel: @personel)
   end
 
-  def new
+  def new # row
     @personel = Personel.new
+
+    render Personels::NewView.new(personel: @personel)
   end
 
-  def create
+  def create # row
     @personel = Personel.new(personel_params) # this part is important try to understand here.
 
     if @personel.save
       redirect_to @personel
     else
-      render :new, status: :unprocessable_entity
+      render Personels::ShowView.new(
+        personel: @personel), status: :unprocessable_entity
     end
   end
 
-  def edit
+  def edit # row
     @personel = Personel.find(params[:id])
   end
 
-  def update
+  def update # row
     @personel = Personel.find(params[:id])
 
     if @personel.update(personel_params)
@@ -35,7 +49,7 @@ class PersonelsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy # row
     @personel = Personel.find(params[:id])
     @personel.destroy
 
